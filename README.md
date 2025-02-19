@@ -1,98 +1,73 @@
+# Analysis-of-Algorithms 
 
-## Circular Linked Lists
+This is in compliance with our Analysis of Algorithms project.
 
-A Circular Linked List is similar to a singly linked list, except the last node points back to the first node, forming a circle. This allows for continuous traversal from the head node without hitting a `NULL` terminator.
+Below are the snippets of code, a brief explanation of how each data structure operates, and a link to a recording of the terminal upon running it.
 
-### Features
-- Elements are connected in a circular manner.
-- No `NULL` at the end of the list.
+## Linked Lists
 
-### Use Cases
-- Implementing round-robin scheduling.
-- Managing the playlist in music players.
+### Circular Linked Lists
 
-## Singly Linked Lists
+[Circular Linked Lists Recording](https://asciinema.org/a/jJsqvGZKRlnapLmh6fs6w8Am9)
 
-A Singly Linked List is a linear data structure where each element (node) points to the next node in the sequence. It consists of nodes that contain data and a pointer to the next node. The last node points to `NULL`, indicating the end of the list.
+Circular Linked Lists are lists that are a lot like Singly Linked Lists except the last node points back to the first one, creating a loop. This type of linked list has continuous traversal due to the loop. The first node points to the second, the second to the third, and so on, until it reaches the last node which points back to the first node.
 
-### Features
-- Simple structure with a linear connection.
-- Only one reference to the next node.
+### Singly Linked Lists
 
-### Use Cases
-- Implementing dynamic memory allocation.
-- Creating stacks and queues.
+[Singly Linked Lists Recording](https://asciinema.org/a/pk9ySwBqJ8jmcttfLzasXAMj3)
 
-## Doubly Linked Lists
+Singly Linked Lists are lists of nodes that point only to the next node. Unlike Circular Linked Lists, the last node of this list points to `NULL`, ending the list. The first node points to the second, and so on. The last node points to `NULL` because it has nothing else to point to.
 
-A Doubly Linked List is similar to a singly linked list, but each node also maintains a pointer to the previous node, in addition to the next node. This allows traversal in both forward and backward directions.
+### Doubly Linked Lists
 
-### Features
-- Nodes have pointers to both the next and previous nodes.
-- Allows bidirectional traversal.
+[Doubly Linked Lists Recording](https://asciinema.org/a/V5nmBlKvXhCgSWfmCNHmZBuw2)
 
-### Use Cases
-- Implementing navigation systems.
-- Managing browser history.
+Doubly Linked Lists are lists where each node points to both the next node and the previous node. This allows traversal in both forward and backward directions. The first node points to the second, the second to the third, and so on. Each node also points back to its predecessor.
 
 ## Queues
 
+[Queues Recording](https://asciinema.org/a/jJsqvGZKRlnapLmh6fs6w8Am9) (Hypothetical URL)
+
 A Queue is a First In, First Out (FIFO) data structure where elements are added to the back (enqueue) and removed from the front (dequeue). It is commonly used in scenarios where order needs to be preserved, such as processing tasks or handling requests.
-
-### Features
-- Elements are processed in the order they arrive.
-- Enqueue operation adds elements to the back.
-- Dequeue operation removes elements from the front.
-
-### Use Cases
-- Task scheduling.
-- Handling requests in web servers.
 
 ## Heaps
 
-A Heap is a complete binary tree that satisfies the heap property. There are two types of heaps: max-heap and min-heap. In a max-heap, the value of each node is greater than or equal to the values of its children. In a min-heap, the value of each node is less than or equal to the values of its children. Heaps are often used to implement priority queues.
+[Heaps Recording](https://asciinema.org/a/jJsqvGZKRlnapLmh6fs6w8Am9) (Hypothetical URL)
 
-### Features
-- Binary tree structure.
-- Max-heap or min-heap property.
-
-### Use Cases
-- Implementing priority queues.
-- Performing heap sort.
+A Heap is a complete binary tree that satisfies the heap property. In a max-heap, the value of each node is greater than or equal to the values of its children. In a min-heap, the value of each node is less than or equal to the values of its children. Heaps are often used to implement priority queues.
 
 ## Trees
 
+[Trees Recording](https://asciinema.org/a/jJsqvGZKRlnapLmh6fs6w8Am9) (Hypothetical URL)
+
 A Tree is a hierarchical data structure consisting of nodes, with a root node at the top and child nodes below. Each node contains data and references to its children. A Binary Tree is a type of tree where each node has at most two children, referred to as the left child and right child.
-
-### Features
-- Hierarchical structure.
-- Nodes have children.
-
-### Use Cases
-- Organizing hierarchical data.
-- Implementing binary search trees.
 
 ## Graphs
 
-A Graph is a collection of nodes (vertices) and edges that connect pairs of nodes. Graphs can be directed or undirected. Common operations on graphs include traversal methods like Breadth-First Search (BFS) and Depth-First Search (DFS). BFS explores nodes level by level, while DFS dives deep into one branch before backtracking.
+### Breadth-First Search (BFS)
 
-### Features
-- Collection of vertices and edges.
-- Can be directed or undirected.
+[Graphs BFS Recording](https://asciinema.org/a/jJsqvGZKRlnapLmh6fs6w8Am9) (Hypothetical URL)
 
-### Use Cases
-- Representing social networks.
-- Modeling transportation systems.
+Graphs are collections of nodes (vertices) and edges. Breadth-First Search (BFS) is a traversal method that explores nodes level by level, starting from a given node and using a queue to manage the traversal process.
+
+### Depth-First Search (DFS)
+
+[Graphs DFS Recording](https://asciinema.org/a/jJsqvGZKRlnapLmh6fs6w8Am9) (Hypothetical URL)
+
+Depth-First Search (DFS) is another graph traversal method that explores nodes deeply, starting from a given node and using recursion to manage the traversal process.
 
 ## Stack
 
+[Stack Recording](https://asciinema.org/a/jJsqvGZKRlnapLmh6fs6w8Am9) (Hypothetical URL)
+
 A Stack is a Last In, First Out (LIFO) data structure where elements are added to (push) and removed from (pop) the top of the stack. It is often used in scenarios requiring reverse order processing, such as undo mechanisms in text editors.
 
-### Features
-- LIFO structure.
-- Push and pop operations.
+## Getting Started
 
-### Use Cases
-- Implementing undo mechanisms.
-- Evaluating expressions.
+To use the code provided in this repository, simply clone the repository and compile the C++ files using your preferred compiler.
 
+```sh
+git clone <repository-url>
+cd <repository-directory>
+g++ -o executable <filename.cpp>
+./executable
