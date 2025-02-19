@@ -99,12 +99,3 @@ A Stack is a Last In, First Out (LIFO) data structure where elements are added t
 - Implementing undo mechanisms.
 - Evaluating expressions.
 
-## Getting Started
-
-To use the code provided in this repository, simply clone the repository and compile the C++ files using your preferred compiler.
-
-```sh
-git clone <repository-url>
-cd <repository-directory>
-g++ -o executable <filename.cpp>
-./executable
