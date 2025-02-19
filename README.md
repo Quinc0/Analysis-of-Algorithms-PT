@@ -44,17 +44,9 @@ A Tree is a hierarchical data structure consisting of nodes, with a root node at
 
 ## Graphs
 
-### Breadth-First Search (BFS)
+![Graphs](images/graphs.png)
 
-![Graphs BFS](images/graphs_bfs.png)
-
-Graphs are collections of nodes (vertices) and edges. Breadth-First Search (BFS) is a traversal method that explores nodes level by level, starting from a given node and using a queue to manage the traversal process.
-
-### Depth-First Search (DFS)
-
-![Graphs DFS](images/graphs_dfs.png)
-
-Depth-First Search (DFS) is another graph traversal method that explores nodes deeply, starting from a given node and using recursion to manage the traversal process.
+A Graph is a collection of nodes (vertices) and edges that connect pairs of nodes. Graphs can be directed or undirected. Common operations on graphs include traversal methods like Breadth-First Search (BFS) and Depth-First Search (DFS). BFS explores nodes level by level, while DFS dives deep into one branch before backtracking.
 
 ## Stack
 
