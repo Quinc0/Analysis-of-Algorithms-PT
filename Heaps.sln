@@ -1,31 +1,76 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Heaps", "Heaps\Heaps.vcxproj", "{6FCC0852-4D33-4572-8CBC-AD1B30612A16}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Debug|x64.ActiveCfg = Debug|x64
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Debug|x64.Build.0 = Debug|x64
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Debug|x86.ActiveCfg = Debug|Win32
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Debug|x86.Build.0 = Debug|Win32
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Release|x64.ActiveCfg = Release|x64
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Release|x64.Build.0 = Release|x64
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Release|x86.ActiveCfg = Release|Win32
-		{6FCC0852-4D33-4572-8CBC-AD1B30612A16}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4FEDCF78-37AD-4B0E-A017-A62B687E1C27}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+#include <vector>
+
+class MaxHeap {
+    std::vector<int> heap;
+
+    void heapifyUp(int index);
+    void heapifyDown(int index);
+
+public:
+    void insert(int value);
+    int extractMax();
+    void printHeap();
+};
+
+void MaxHeap::heapifyUp(int index) {
+    if (index && heap[(index - 1) / 2] < heap[index]) {
+        std::swap(heap[index], heap[(index - 1) / 2]);
+        heapifyUp((index - 1) / 2);
+    }
+}
+
+void MaxHeap::heapifyDown(int index) {
+    int left = 2 * index + 1;
+    int right = 2 * index + 2;
+    int largest = index;
+
+    if (left < heap.size() && heap[left] > heap[largest]) {
+        largest = left;
+    }
+    if (right < heap.size() && heap[right] > heap[largest]) {
+        largest = right;
+    }
+    if (largest != index) {
+        std::swap(heap[index], heap[largest]);
+        heapifyDown(largest);
+    }
+}
+
+void MaxHeap::insert(int value) {
+    heap.push_back(value);
+    heapifyUp(heap.size() - 1);
+}
+
+int MaxHeap::extractMax() {
+    if (heap.empty()) return -1;
+
+    int max = heap.front();
+    heap[0] = heap.back();
+    heap.pop_back();
+    heapifyDown(0);
+
+    return max;
+}
+
+void MaxHeap::printHeap() {
+    for (int val : heap) {
+        std::cout << val << " ";
+    }
+    std::cout << "\n";
+}
+
+int main() {
+    MaxHeap heap;
+    heap.insert(3);
+    heap.insert(2);
+    heap.insert(15);
+    heap.insert(5);
+    heap.insert(4);
+    heap.insert(45);
+
+    heap.printHeap();
+    std::cout << heap.extractMax() << " extracted from heap\n";
+    heap.printHeap();
+    return 0;
+}
