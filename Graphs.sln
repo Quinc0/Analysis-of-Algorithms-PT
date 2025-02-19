@@ -1,31 +1,59 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Graphs", "Graphs\Graphs.vcxproj", "{56672E6B-1440-4C1A-9B59-A5912D5CE173}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Debug|x64.ActiveCfg = Debug|x64
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Debug|x64.Build.0 = Debug|x64
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Debug|x86.ActiveCfg = Debug|Win32
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Debug|x86.Build.0 = Debug|Win32
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Release|x64.ActiveCfg = Release|x64
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Release|x64.Build.0 = Release|x64
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Release|x86.ActiveCfg = Release|Win32
-		{56672E6B-1440-4C1A-9B59-A5912D5CE173}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {390494D5-437C-452F-A170-3EE43D575EE5}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+#include <list>
+
+class Graph {
+    int V;
+    std::list<int>* adj;
+
+public:
+    Graph(int V);
+    void addEdge(int v, int w);
+    void BFS(int s);
+};
+
+Graph::Graph(int V) {
+    this->V = V;
+    adj = new std::list<int>[V];
+}
+
+void Graph::addEdge(int v, int w) {
+    adj[v].push_back(w);
+}
+
+void Graph::BFS(int s) {
+    bool* visited = new bool[V];
+    for (int i = 0; i < V; i++) {
+        visited[i] = false;
+    }
+
+    std::list<int> queue;
+    visited[s] = true;
+    queue.push_back(s);
+
+    while (!queue.empty()) {
+        s = queue.front();
+        std::cout << s << " ";
+        queue.pop_front();
+
+        for (auto adjecent : adj[s]) {
+            if (!visited[adjecent]) {
+                visited[adjecent] = true;
+                queue.push_back(adjecent);
+            }
+        }
+    }
+}
+
+int main() {
+    Graph g(4);
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+    g.addEdge(3, 3);
+
+    std::cout << "Breadth First Traversal starting from vertex 2:\n";
+    g.BFS(2);
+    return 0;
+}
