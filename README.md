@@ -1,6 +1,3 @@
-# Data Structures in C++
-
-This repository provides implementations of various data structures in C++ including Circular Linked Lists, Singly Linked Lists, Doubly Linked Lists, Queues, Heaps, Trees, Graphs, and Stacks. Below are the descriptions and code snippets for each data structure.
 
 ## Circular Linked Lists
 
