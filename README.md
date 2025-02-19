@@ -53,13 +53,3 @@ A Graph is a collection of nodes (vertices) and edges that connect pairs of node
 ![Stack](Output/stack.png)
 
 A Stack is a Last In, First Out (LIFO) data structure where elements are added to (push) and removed from (pop) the top of the stack. It is often used in scenarios requiring reverse order processing, such as undo mechanisms in text editors.
-
-## Getting Started
-
-To use the code provided in this repository, simply clone the repository and compile the C++ files using your preferred compiler.
-
-```sh
-git clone <repository-url>
-cd <repository-directory>
-g++ -o executable <filename.cpp>
-./executable
