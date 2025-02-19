@@ -8,7 +8,7 @@ Below are the snippets of code, a brief explanation of how each data structure o
 
 ### Circular Linked Lists
 
-![Circular Linked Lists](Output/circular.png)
+![Circular Linked Lists]([Output/circular.png](https://raw.githubusercontent.com/Quinc0/Analysis-of-Algorithms-PT/refs/heads/Output/circular.png))
 
 Circular Linked Lists are lists that are a lot like Singly Linked Lists except the last node points back to the first one, creating a loop. This type of linked list has continuous traversal due to the loop. The first node points to the second, the second to the third, and so on, until it reaches the last node which points back to the first node.
 
