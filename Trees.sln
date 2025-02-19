@@ -1,31 +1,37 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Trees", "Trees\Trees.vcxproj", "{96E19479-D637-4027-961A-7064E6B3F79E}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Debug|x64.ActiveCfg = Debug|x64
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Debug|x64.Build.0 = Debug|x64
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Debug|x86.ActiveCfg = Debug|Win32
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Debug|x86.Build.0 = Debug|Win32
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Release|x64.ActiveCfg = Release|x64
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Release|x64.Build.0 = Release|x64
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Release|x86.ActiveCfg = Release|Win32
-		{96E19479-D637-4027-961A-7064E6B3F79E}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1D6C566D-9FC1-437F-9084-DCB48EF8A6F8}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
+};
+
+class BinaryTree {
+public:
+    Node* root;
+
+    BinaryTree() : root(nullptr) {}
+
+    void inorder(Node* node) {
+        if (node == nullptr)
+            return;
+        inorder(node->left);
+        std::cout << node->data << " ";
+        inorder(node->right);
+    }
+};
+
+int main() {
+    BinaryTree tree;
+    tree.root = new Node(1);
+    tree.root->left = new Node(2);
+    tree.root->right = new Node(3);
+    tree.root->left->left = new Node(4);
+    tree.root->left->right = new Node(5);
+
+    std::cout << "Inorder traversal of binary tree:\n";
+    tree.inorder(tree.root);
+    return 0;
+}
